@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="url=https://docs.google.com/forms/d/e/1FAIpQLScVSYc7s1DoBn4K0TeKevyV5w-ctSd-w0xuH30HClPVP8hkNg/viewform?usp=header">
+    <!-- Corrected meta refresh with 3 seconds delay -->
+    <meta http-equiv="refresh" content="3;url=https://docs.google.com/forms/d/e/1FAIpQLScVSYc7s1DoBn4K0TeKevyV5w-ctSd-w0xuH30HClPVP8hkNg/viewform?usp=header">
     <title>Exciting Form</title>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0"></script>
     <style>
@@ -11,18 +12,18 @@
             font-family: Arial, sans-serif;
             text-align: center;
             background-color: #f4f4f4;
-            padding: 10px; /* Reduced padding to make top and bottom bands thinner */
+            padding: 10px;
             overflow: hidden;
             position: relative;
         }
         .form-container {
             position: relative;
             width: 100%;
-            height: 90vh; /* Increased height to reduce top and bottom space */
+            height: 90vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            background: rgba(255, 255, 255, 0.8);
             padding: 10px;
             border-radius: 10px;
         }
@@ -35,12 +36,12 @@
         /* Positioning the image at the bottom center */
         .moving-image {
             position: fixed;
-            bottom: 10px; /* Distance from the bottom */
+            bottom: 10px;
             left: 50%;
-            transform: translateX(-50%); /* Center the image horizontally */
-            width: 300px; /* Make the image larger */
-            height: auto; /* Keep the aspect ratio intact */
-            z-index: 2; /* Ensures image is always visible */
+            transform: translateX(-50%);
+            width: 300px;
+            height: auto;
+            z-index: 2;
         }
     </style>
 </head>
@@ -64,7 +65,7 @@
         }
 
         // Change image every 2.5 seconds (2s for scena1.png, 0.5s for scena2.png)
-        let images = ['scena1.png', 'scena2.png']; // List of images to switch between
+        let images = ['scena1.png', 'scena2.png'];
         let currentIndex = 0;
 
         function switchImage() {
@@ -72,7 +73,6 @@
             document.getElementById('slidingImage').src = images[currentIndex];
         }
 
-        // Set the interval to switch the image every 2.5 seconds
         setInterval(function() {
             switchImage();
             if (currentIndex === 0) {
@@ -80,7 +80,6 @@
             }
         }, 2500); // Cycle duration of 2.5 seconds
 
-        // Trigger confetti when the page loads
         window.onload = launchConfetti;
     </script>
 </body>
