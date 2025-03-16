@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Corrected meta refresh with 3 seconds delay -->
-    <meta http-equiv="refresh" content="9999;url=https://docs.google.com/forms/d/e/1FAIpQLScVSYc7s1DoBn4K0TeKevyV5w-ctSd-w0xuH30HClPVP8hkNg/viewform?usp=header">
     <title>Exciting Form</title>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0"></script>
     <style>
@@ -19,7 +17,7 @@
         .form-container {
             position: relative;
             width: 100%;
-            height: 90vh;
+            height: 90vh; /* Ensure the form container takes up most of the screen */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -73,6 +71,7 @@
             document.getElementById('slidingImage').src = images[currentIndex];
         }
 
+        // Set the interval to switch the image every 2.5 seconds
         setInterval(function() {
             switchImage();
             if (currentIndex === 0) {
@@ -84,3 +83,4 @@
     </script>
 </body>
 </html>
+
