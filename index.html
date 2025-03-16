@@ -26,12 +26,6 @@
             border-radius: 10px;
             z-index: 1;
         }
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        
         /* Positioning the image at the bottom center */
         .moving-image {
             position: fixed;
@@ -49,9 +43,9 @@
     <!-- Your image positioned at the bottom center -->
     <img id="slidingImage" src="scena1.png" alt="Bottom Center Image" class="moving-image">
     
-    <!-- Embed Google Form inside a transparent container -->
+    <!-- Button to open the form in a new tab -->
     <div class="form-container">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScVSYc7s1DoBn4K0TeKevyV5w-ctSd-w0xuH30HClPVP8hkNg/viewform?usp=header" sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
+        <button onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLScVSYc7s1DoBn4K0TeKevyV5w-ctSd-w0xuH30HClPVP8hkNg/viewform?usp=header', '_blank')">Open Google Form</button>
     </div>
     
     <script>
@@ -84,4 +78,3 @@
     </script>
 </body>
 </html>
-
