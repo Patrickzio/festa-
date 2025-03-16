@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exciting Form</title>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0"></script>
+    <script>
+        // Redirecting the user to the Google Form automatically when the page loads
+        window.onload = function() {
+            window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLScVSYc7s1DoBn4K0TeKevyV5w-ctSd-w0xuH30HClPVP8hkNg/viewform";
+        };
+    </script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,19 +20,6 @@
             overflow: hidden;
             position: relative;
         }
-        .form-container {
-            position: relative;
-            width: 100%;
-            height: 90vh; /* Ensure the form container takes up most of the screen */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 10px;
-            border-radius: 10px;
-            z-index: 1;
-        }
-        /* Positioning the image at the bottom center */
         .moving-image {
             position: fixed;
             bottom: 10px;
@@ -39,14 +32,8 @@
     </style>
 </head>
 <body>
-    
     <!-- Your image positioned at the bottom center -->
     <img id="slidingImage" src="scena1.png" alt="Bottom Center Image" class="moving-image">
-    
-    <!-- Embed Google Form directly in the page -->
-    <div class="form-container">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScVSYc7s1DoBn4K0TeKevyV5w-ctSd-w0xuH30HClPVP8hkNg/viewform" width="100%" height="100%" frameborder="0"></iframe>
-    </div>
     
     <script>
         function launchConfetti() {
@@ -74,7 +61,11 @@
             }
         }, 2500); // Cycle duration of 2.5 seconds
 
-        window.onload = launchConfetti;
+        window.onload = function() {
+            launchConfetti();
+            // Redirect to the form
+            window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLScVSYc7s1DoBn4K0TeKevyV5w-ctSd-w0xuH30HClPVP8hkNg/viewform";
+        };
     </script>
 </body>
 </html>
