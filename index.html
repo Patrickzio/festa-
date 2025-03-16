@@ -24,6 +24,7 @@
             background: rgba(255, 255, 255, 0.8);
             padding: 10px;
             border-radius: 10px;
+            z-index: 1;
         }
         iframe {
             width: 100%;
@@ -50,7 +51,7 @@
     
     <!-- Embed Google Form inside a transparent container -->
     <div class="form-container">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScVSYc7s1DoBn4K0TeKevyV5w-ctSd-w0xuH30HClPVP8hkNg/viewform?usp=header"></iframe>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScVSYc7s1DoBn4K0TeKevyV5w-ctSd-w0xuH30HClPVP8hkNg/viewform?usp=header" sandbox="allow-scripts allow-same-origin allow-forms"></iframe>
     </div>
     
     <script>
