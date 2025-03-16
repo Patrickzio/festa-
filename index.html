@@ -5,24 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exciting Form</title>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0"></script>
-    <script>
-        // Redirecting the user to the Google Form automatically when the page loads
-        window.onload = function() {
-            window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLScVSYc7s1DoBn4K0TeKevyV5w-ctSd-w0xuH30HClPVP8hkNg/viewform";
-        };
-    </script>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             background-color: #f4f4f4;
-            padding: 10px;
-            overflow: hidden;
-            position: relative;
+            padding: 20px;
         }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        /* Positioning the image at the top center */
         .moving-image {
             position: fixed;
-            bottom: 10px;
+            top: 10px;
             left: 50%;
             transform: translateX(-50%);
             width: 300px;
@@ -32,9 +51,27 @@
     </style>
 </head>
 <body>
-    <!-- Your image positioned at the bottom center -->
-    <img id="slidingImage" src="scena1.png" alt="Bottom Center Image" class="moving-image">
-    
+    <h1>Compila il modulo</h1>
+
+    <!-- Your image positioned at the top center -->
+    <img id="slidingImage" src="scena1.png" alt="Top Center Image" class="moving-image">
+
+    <div class="form-container">
+        <!-- Form HTML -->
+        <form action="/submit-form" method="POST">
+            <label for="name">Nome</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Messaggio</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Invia</button>
+        </form>
+    </div>
+
     <script>
         function launchConfetti() {
             confetti({
@@ -44,10 +81,11 @@
             });
         }
 
-        // Change image every 2.5 seconds (2s for scena1.png, 0.5s for scena2.png)
+        // Array of images to switch between
         let images = ['scena1.png', 'scena2.png'];
         let currentIndex = 0;
 
+        // Function to switch images
         function switchImage() {
             currentIndex = (currentIndex + 1) % images.length;
             document.getElementById('slidingImage').src = images[currentIndex];
@@ -61,10 +99,9 @@
             }
         }, 2500); // Cycle duration of 2.5 seconds
 
+        // Trigger confetti effect when the page loads
         window.onload = function() {
             launchConfetti();
-            // Redirect to the form
-            window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLScVSYc7s1DoBn4K0TeKevyV5w-ctSd-w0xuH30HClPVP8hkNg/viewform";
         };
     </script>
 </body>
