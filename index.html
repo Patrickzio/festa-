@@ -10,66 +10,58 @@
             font-family: Arial, sans-serif;
             text-align: center;
             background-color: #f4f4f4;
-            padding: 20px;
-        }
-        .form-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        input, textarea {
-            width: 100%;
             padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
+            overflow: hidden;
+            position: relative;
         }
-        button {
-            background-color: #4CAF50;
-            color: white;
+
+        .form-container {
+            position: relative;
+            width: 100%;
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+            z-index: 1;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
             border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
         }
-        button:hover {
-            background-color: #45a049;
-        }
-        /* Positioning the image at the top center */
         .moving-image {
-            position: fixed;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 300px;
-            height: auto;
-            z-index: 2;
-        }
+  position: fixed;
+  bottom: 10px;
+  width: 20vw; /* Optional: makes it scale with screen width */
+  max-width: 300px;
+  height: auto;
+  z-index: 2;
+  animation: slideLoop 10s linear infinite;
+}
+
+
+@keyframes slideLoop {
+  0% {
+    transform: translateX(100vw); /* Fully off the right */
+  }
+  100% {
+    transform: translateX(-100%); /* Fully off the left (based on the element’s own width) */
+  }
+}
+
+
     </style>
 </head>
 <body>
-    <h1>Compila il modulo</h1>
-
-    <!-- Your image positioned at the top center -->
-    <img id="slidingImage" src="scena1.png" alt="Top Center Image" class="moving-image">
-
+    
+    <img id="slidingImage" src="scena1.png" alt="Sliding Image" class="moving-image">
+    
     <div class="form-container">
-        <!-- Form HTML -->
-        <form action="/submit-form" method="POST">
-            <label for="name">Nome</label>
-            <input type="text" id="name" name="name" required>
-
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="message">Messaggio</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
-
-            <button type="submit">Invia</button>
-        </form>
+        <iframe src="https://forms.gle/7418wvMhaVbL4iiQ8"></iframe>
     </div>
 
     <script>
@@ -81,29 +73,7 @@
             });
         }
 
-        // Array of images to switch between
-        let images = ['scena1.png', 'scena2.png'];
-        let currentIndex = 0;
-
-        // Function to switch images
-        function switchImage() {
-            currentIndex = (currentIndex + 1) % images.length;
-            document.getElementById('slidingImage').src = images[currentIndex];
-        }
-
-        // Set the interval to switch the image every 2.5 seconds
-        setInterval(function() {
-            switchImage();
-            if (currentIndex === 0) {
-                setTimeout(switchImage, 2000); // After 2 seconds, switch to scena1.png
-            }
-        }, 2500); // Cycle duration of 2.5 seconds
-
-        // Trigger confetti effect when the page loads
-        window.onload = function() {
-            launchConfetti();
-        };
+        window.onload = launchConfetti;
     </script>
 </body>
 </html>
-
